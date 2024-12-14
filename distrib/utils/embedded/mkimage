@@ -60,6 +60,8 @@ MTREE=${TOOL_MTREE:-mtree}
 INSTALLBOOT=${TOOL_INSTALLBOOT:-installboot}
 MKUBOOTIMAGE=${TOOL_MKUBOOTIMAGE:-mkubootimage}
 GZIP_CMD=${TOOL_GZIP:-gzip} # ${GZIP} is special to gzip(1)
+SED=${TOOL_SED:-sed}
+PWD_MKDB=${TOOL_PWD_MKDB:-pwd_mkdb}
 
 postfix=false
 [ "${MKPOSTFIX:-yes}" = no ] || postfix=true
