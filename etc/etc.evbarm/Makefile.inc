@@ -106,8 +106,10 @@ __mkimage: .USE
 		&& ${TOOL_GZIP} -f ${IMAGE.dir}/${.TARGET:S/smp_//}-${f}.img \
 		|| rm ${IMAGE.dir}/${.TARGET:S/smp_//}-${f}.img
 .endfor
-	@echo "===> Compressing image ${IMAGE.dir}/${.TARGET:S/smp_//}.img"
-	${TOOL_GZIP} -f ${GZIP_N_FLAG} -9 ${IMAGE.dir}/${.TARGET:S/smp_//}.img
+	@if [ "${MKI_COMPRESS.${.TARGET}}" != false ]; then \
+		@echo "===> Compressing image ${IMAGE.dir}/${.TARGET:S/smp_//}.img"; \
+		${TOOL_GZIP} -f ${GZIP_N_FLAG} -9 ${IMAGE.dir}/${.TARGET:S/smp_//}.img; \
+	fi
 
 ARCHES.earmv4=		armv4
 ARCHES.earmv4eb=	armv4
